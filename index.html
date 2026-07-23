@@ -155,6 +155,17 @@
   .copy:hover{border-color:var(--mint);background:var(--mint-soft)}
   .copy:disabled{color:#B6C6C2;border-color:var(--line);background:#F4F7F6;cursor:not-allowed}
 
+  .card.mgr{border-bottom:0}
+  .qr{
+    display:flex;align-items:center;gap:13px;
+    margin:2px 4px 8px;padding:12px;
+    background:#FEF7D9;border:1px solid #F3E3A8;border-radius:11px;
+  }
+  .qr-img{flex:none;display:block;padding:5px;background:#fff;border-radius:8px;border:1px solid #EEDFAE}
+  .qr-img img{display:block;width:96px;height:96px;image-rendering:pixelated}
+  .qr-txt b{display:block;font-size:13.5px;font-weight:800;letter-spacing:-.02em;color:#6B4E00}
+  .qr-txt p{margin:4px 0 0;font-size:12px;line-height:1.5;color:#7A6224}
+
   .result-foot{padding:12px 16px 16px;border-top:1px solid var(--line);background:#FAFCFB}
   .copy-all{
     width:100%;height:52px;font:inherit;font-size:16px;font-weight:700;letter-spacing:-.01em;
@@ -235,10 +246,18 @@
    담당 매니저 연락처 — 이 부분만 수정하면 됩니다
    ══════════════════════════════════════════════════ */
 var MANAGER = {
-  "손현수": { tel:"010-2674-7656", note:"" },
-  "전혜수": { tel:"010-8038-1322", note:"" },
-  "정현영": { tel:"010-8466-7068", note:"" },
-  "문설희": { tel:"010-6862-2494", note:"출산휴가 중" }
+  "손현수": { tel:"010-2674-7656", note:"",
+    kakao:"http://qr.kakao.com/talk/5lXiXKvVU3WilTGD7agyMxWovtw-",
+    qr:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQMAAABAK/OWAAAABlBMVEUMKiX////OhjcPAAACGUlEQVR42u2bS24DMQxDid7/zipaWyIVtIsAnEULTjaexMjiRaGpz6DeuZDd2f3XduNche+b8wU477/sqA+8c2X3D1f/QIftXV/U67MKbxdvRneDxkT5WZ8d4e3kfRXk67bugr9FeD8R3x3Zh3l4P6zflywm0K+kRL+tvMWf/PKKPzHyHmsooa1xL1tC0MWbB2TfMvgnzsPbdF6+4L6kL/XJgcLbE9+TS2Jynf6E7iR6YtSTMSedZvZChT28bfGN2h5cM567Dm+rH5w47lSzqOwYRQlBX3yPTq80aMlJePt4t3B0TXZWd0f8oN1/t/G7/lBq5O1gQtDnT1j3njYDDXjynSfySz1BO7LBdk94m/wJ+zqSW1K1MSXxELScl2AiWUwz6cOrcl466yeS5EytBChJgy71EPToyUpvNNNpOanwtvoTaAVFmvPTRU79xKnfq9wNrVyRevTbq9+rU9wq0vzjT5x6MiLOUpW68fTTHvCDq/DK99mEiH47eWvHsqgp/AukPujzgyPapcM+MkzYshKCJt4svcropg4Rxp8Y/QlqdeHlGC1pGie+bbxFQrQiC+n3IH7Ql1/K1EnRfU9oV/qXXv3miYilKdBJ2fB25pfLEWKPnky8h6BJv6UQyBlCFlai34/wniNTummQQnh4m+MbHLXCGlFOvuPX72JreOmKjMmGoNOf8Lmp9Wha+mnP+O88A5zd/273J3V6nSIYrDRKAAAAAElFTkSuQmCC" },
+  "전혜수": { tel:"010-8038-1322", note:"",
+    kakao:"http://qr.kakao.com/talk/n_ELYKNbTmTQ6q2MXDiTXryZu9I-",
+    qr:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQMAAABAK/OWAAAABlBMVEUMKiX////OhjcPAAACKUlEQVR42u2bwU4DQQxDLf7/nwPsJHGy7aWS9wDyVFBRjTi8ibyOM0V8suDd3v3XduOsn/c4f+Q/uT7B3BFf+GR595tVB/RLl4TrNEj/+m2CEt4X6eg6TuintPMIzg4TFPKuYk4BCSzo5v0E7+R6IU/SYd6P6XeDP+JNSbd+C3nfNPvNy/5EyHvbwyMlWfUlLrVMUMM7qdKKZE2XuJQ9N0EJ75uIR7mUOoWqefPW6HdUCQ/k/SnGMZigxp8gutuJauwDYA+UBW6CCj0phY7+CYYppeDWbx1vBlSdm1Szs0XGBEX1TWM44hL2m6UuJqjp54eSgLW+ghT7b6GeMJxqQ179zup7TFClJ+Ww2d+sLNbPS60fzJbyNvNhYcP1reRNzkPB8SIv5q3pL/nEbGvIYJDu0LxVeVUsuz3MCpgZWr91+clIT+i95wPT+YmyvoegDC++03Dng9L6braUmB1Z2Q8Kn5ejmeeNIewsxX5Q6797ZBw3E8iuyLxV+s0JT4UlwMhO4Pmltr47727kYI5Fy2iCmvqOkVu1hE+L6Pmlsr6xxvCMUZZ5sX4L65s5VSl4D5HbpJi3rL7HeCFGWrWuubm/VOYnXcNd0OUBPU97oN+Z4DswYTBeB2GCGj84vsPQdyMYxzo/kfsTNjnzLiHY+dh/y3ljRiVsf8Lz+efqm7cjeKsteD3CBNX6PW5UMcDqG1gmqPQnabR5IQW38bx5K/23vwPs3f9u9zeeap4hheY9QgAAAABJRU5ErkJggg==" },
+  "정현영": { tel:"010-8466-7068", note:"",
+    kakao:"http://qr.kakao.com/talk/Oxe6v_ikORkFc6jzifZXk35Ul1A-",
+    qr:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQMAAABAK/OWAAAABlBMVEUMKiX////OhjcPAAACFUlEQVR42u2bS27DMBBDB73/nVm0lkgqTRcB6EUCOkDhj1bPU4pDyYNXjunojn630XMd+/Tn5uiJj8DXvHJ09JNjv6DBL9yL7iY/68l+NSUY4X2V8awzVvlF2kaUd5K3SdG+4P3yvo83BXshn/K+S785R7Kq53gPJZjgzWr+91d/EuQt0d7UqeS8XkcJRnhvjRZcUxb9F5R3jvcifaoMwIvyDur38n1e66Bw80n1JFTfR5VbVbsfv+q/BEP+BAs5u3eV+xb06knOf4/lJusG/clQvcs7pCewmRHk6ynhqvoSzPB2c7JZyyDSLpZ3yA8uppammKJDFqUEg/0lyJhKzgyl/XxyvrRmck2WrHjlsfWDwfpWRgi1mjjFu/UdzU/Uth9hynhuVYKh+XIM65iAuGMp75x+22oDfNkSrPr6k6wf1CIOTF1guyTKO9nvHFyVqQxgkVYJRnjLAIJsj50++1EJJvMT34Py0HE2/4777z/KDZeS5ic5fzKu4CpwdyvNv5O8LS/ZK8SyiXwB5R3z3zpRw6NuR2lhCUZ4y5IoQrHUBM2/0/UNt9ve5Xd95xZ/csbe3vfAdsiWd2y+1FoxLcsu65EDL8GMfsNWMLnZBPPwhUl55/yJ7YWFbULxTLa807x90dK3a3ILUAkmeVO1fQ1zbA9neaf1m5sF+Ycf85R32p9Qv0eRoC/+lHfUf/cb4I7+uNHfYfJzTFFA+ZYAAAAASUVORK5CYII=" },
+  "문설희": { tel:"010-6862-2494", note:"출산휴가 중",
+    kakao:"http://qr.kakao.com/talk/6nbN.Zqp3SjzScHUhEn87G9hmAU-",
+    qr:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQMAAABAK/OWAAAABlBMVEUMKiX////OhjcPAAACGUlEQVR42u2bwW7DMAxDhf3/P2vobJG0tx0KMIcNzAY3bX16EShKVqvfuSq7s/uv7a51ve6/Xmt9Xj2fc8dHvXNl9w/XPKAX3vW/iO933bIjvD28v0d1L9TrK+4IQSvvieaNufES3k/wFjVZsBf78H5Iv1vg73CXDBreLt5Fyf7lL/7EyPuwhvAlcClqMEPQxFvurqWwhLdPvxHL40+WjB8JNXri0u+eJDlCDtr0KeFt1W8UPF3Ijyh39sMIbxNv+BOFDHcoyh6CNj/YqCqnbSVaPk2UEPTod01ClP7U9KsaNX14u+J7miZkP9lynkMlvm36feCdB9D8Fk8jvD286ywloST7Fmt4e+qdkmiGeIgDH0ce3q56hxX86HXx5AHuPLxt/oRnDcicqiWd+tJeX8obwmewR7+dvFnlyMnDBDs0PQRt+RKacgxAjE2JP7H772Zlz8a3HvEkX9r6VWwRonVSahIHeAga+yco3iHpojbxJ079LulLSTeFDdpO/8TpT0q1G4oCbxL/7dUTTlddiqJ+Jf7E7L+veVmOXbFZGIJGf9I8WptAV3cY/bb2q2Q9JwkZ7eFt1JPD+dWxdGde05svpyMljoUz4JXzBrP/binqq6/RZD38CUFbvSPzyJIgr6ZKCBp5N0GrC6ycpz3Hm1HdYl0wQBuCRv1mh7Dlp1LSrA1vqz9pqX+q60qfqXfc/ju/Ac7uf7f7EzQwf0CSTl4QAAAAAElFTkSuQmCC" }
 };
 var MANAGER_TITLE = "설계매니저";
 
@@ -316,8 +335,9 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&
 
 function rowsFor(d){
   var rows = FIXED.slice();
-  var m = MANAGER[d.m] || { tel:"", note:"" };
-  rows.push({ role:"담당 " + MANAGER_TITLE, name:d.m, tel:m.tel, note:m.note, cls:"mgr" });
+  var m = MANAGER[d.m] || { tel:"", note:"", kakao:"", qr:"" };
+  rows.push({ role:"담당 " + MANAGER_TITLE, name:d.m, tel:m.tel, note:m.note,
+              kakao:m.kakao, qr:m.qr, cls:"mgr" });
   return rows;
 }
 
@@ -325,6 +345,7 @@ function fullText(d){
   var lines = ["[하나생명] " + d.a + " " + d.b + " 담당자 안내", ""];
   rowsFor(d).forEach(function(r){
     lines.push("· " + r.role + " " + r.name + " " + (r.tel || "(연락처 확인 중)") + (r.note ? " (" + r.note + ")" : ""));
+    if (r.kakao) lines.push("  카카오톡 친구추가 " + r.kakao);
   });
   return lines.join("\n");
 }
@@ -351,6 +372,18 @@ function renderResult(d){
       '<button class="copy" type="button" data-i="' + i + '"' + (has ? "" : " disabled") + '>복사</button>' +
     '</div>';
   });
+
+  var mg = rowsFor(d)[2];
+  if (mg.qr){
+    html += '<div class="qr">' +
+      '<a class="qr-img" href="' + esc(mg.kakao) + '" target="_blank" rel="noopener">' +
+        '<img src="' + mg.qr + '" alt="' + esc(mg.name) + ' 매니저 카카오톡 친구추가 QR코드" width="96" height="96">' +
+      '</a>' +
+      '<div class="qr-txt">' +
+        '<b>카카오톡으로 바로 연결</b>' +
+        '<p>휴대폰 카메라로 QR코드를 찍으면 ' + esc(mg.name) + ' 매니저 카카오톡 친구추가 화면으로 바로 연결됩니다. 이 화면에서는 QR코드를 눌러도 됩니다.</p>' +
+      '</div></div>';
+  }
 
   html += '</div><div class="result-foot">' +
       '<button class="copy-all" type="button" id="copyAll">전체 정보 복사</button>' +
